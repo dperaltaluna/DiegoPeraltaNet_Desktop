@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import java.net.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.shape.*?>
+
+<StackPane xmlns:fx="http://javafx.com/fxml/1" alignment="CENTER" 
+           fx:controller="net.diegoperalta.diegoperaltanet_desktop.MenuController" fx:id="parentContainer"
+            styleClass="stackPane" >
+    <BorderPane id="borderPane1" styleClass="backgroundMenu">
+        <top>
+            <HBox alignment="TOP_RIGHT" spacing="3">
+                <Button BorderPane.alignment="TOP_RIGHT" minHeight="26" minWidth="26" text="" onAction="#handleMinimizeButtonAction"
+                        fx:id="minimizeButton"/>
+                <Button BorderPane.alignment="TOP_RIGHT" minHeight="26" minWidth="26" text="" onAction="#handleCloseButtonAction"
+                         fx:id="closeButton"/>
+            </HBox>
+        </top>
+        <center>
+            <!--<Text fx:id="texto1"   text="Escena 1" opacity="1"  layoutX="250" layoutY="240" /> -->
+            <Pane>
+                <Button layoutX="755" layoutY="344" minWidth="300"  minHeight="130" fx:id="podcastButton"
+                onMouseEntered="#handleOnMouseEnteredPodButton" 
+                onMouseExited="#handleOnMouseExitedPodButton"/>
+                <Button layoutX="781" layoutY="475" minWidth="170"  minHeight="84"  fx:id="socialMediaButton"
+                onMouseEntered="#handleOnMouseEnteredRSButton"
+                onMouseExited="#handleOnMouseExitedRSButton"/>
+                <Label layoutX="710" layoutY="510" minWidth="150"  minHeight="45" fx:id="label2" rotate="51"/>
+                <Label layoutX="897" layoutY="512" minWidth="125"  minHeight="1" fx:id="label3" rotate="44"/>
+                <!--<Button layoutX="781" layoutY="468" minWidth="170"  minHeight="84" fx:id="socialMediaButton"    
+                onMouseEntered="#handleOnMouseEnteredRSButton" rotate="53" 
+                onMouseExited="#handleOnMouseExitedRSButton"/>-->
+                <Button layoutX="275" layoutY="127" minWidth="445" minHeight="405" fx:id="blogButton"
+                onMouseEntered="#handleOnMouseEnteredBlogButton"   
+                onMouseExited="#handleOnMouseExitedBlogButton" onAction="#handleButtonAction"/>
+                <Label layoutX="301" layoutY="163" minWidth="392"  minHeight="238" fx:id="labelBlackScreen"/>
+            </Pane>
+        </center>
+        <left>
+            <Button BorderPane.alignment="CENTER" text="Carga Blog" layoutX="126" layoutY="90"
+                    visible="false" disable="true" fx:id="button1" />
+        </left>
+        <bottom>
+            <Pane>
+                <Label alignment="BASELINE_CENTER" layoutX="69" layoutY="45" minWidth="1059" minHeight="31"
+                       fx:id="labelBottom">
+                </Label>
+            </Pane>
+        </bottom>
+    </BorderPane>
+    <stylesheets>
+         <URL value="@Scenes.css"/>
+    </stylesheets>
+</StackPane>

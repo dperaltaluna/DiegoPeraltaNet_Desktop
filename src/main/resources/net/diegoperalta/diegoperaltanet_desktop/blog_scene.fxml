@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import java.net.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.shape.*?>
+
+<StackPane xmlns:fx="http://javafx.com/fxml/1" alignment="CENTER"
+           fx:controller="net.diegoperalta.diegoperaltanet_desktop.BlogSceneController"
+           fx:id="parentContainer" styleClass="stackPane">
+    <BorderPane id="borderPane2">
+        <top>
+            <HBox alignment="TOP_LEFT" spacing="438">
+                <Button BorderPane.alignment="TOP_LEFT" layoutX="120" layoutY="85" text="Menú"
+                        onAction="#handleLeftButtonAction" fx:id="buttonLeft" visible="true" />
+                <Label BorderPane.alignment="BOTTOM_CENTER" text="Cargando Entradas..."
+                       layoutX="500" layoutY="50" minHeight="40"  fx:id="labelLoading" visible="true" />
+                <!--<ProgressBar BorderPane.alignment="TOP_RIGHT" layoutY="50" minHeight="40" visible="false" fx:id="progBar" />-->
+                <!--ProgressIndicator BorderPane.alignment="TOP_RIGHT" visible="true" minHeight="40" fx:id="progIndicator" />-->
+                <HBox alignment="TOP_RIGHT" spacing="3">
+                    <Button BorderPane.alignment="TOP_RIGHT" minHeight="26" minWidth="26" text="" onAction="#handleMinimizeButtonAction2"
+                            fx:id="minimizeButton2"/>
+                    <Button BorderPane.alignment="TOP_RIGHT" minHeight="26" minWidth="26" text="" onAction="#handleCloseButtonAction2"
+                            fx:id="closeButton2"/>
+                </HBox>
+            </HBox>
+        </top>
+        <left>
+            <Label BorderPane.alignment="CENTER_LEFT" minWidth="120" text=" "
+                   fx:id="voidLabel1" visible="false"/>
+            <!--Button BorderPane.alignment="CENTER_LEFT" layoutX="120" layoutY="85" minWidth="120"  text="Previo"
+                onAction="#handlePreviousButtonAction" fx:id="buttonPrevious" visible="false" /-->
+            <Button BorderPane.alignment="CENTER_LEFT" layoutX="100.0" layoutY="50.0"
+                    mnemonicParsing="false" onAction="#handlePreviousButtonAction" fx:id="buttonPrevious" visible="false">
+                <graphic>
+                    <SVGPath content="M 73,10 L35,25 L73,40 Z" id="button-icon-shape" layoutX="100"/>
+                    <!--SVGPath content="M 35,10 L73,25 L35,40 Z" id="button-icon-shape" layoutX="100" /-->
+                </graphic>
+            </Button>
+        </left>
+        <center>
+            <HBox>
+                <Label minWidth="30" alignment="CENTER_LEFT" visible="false"></Label>
+            <VBox alignment="CENTER_LEFT" fx:id="vbox0">
+                <VBox alignment="CENTER_LEFT" fx:id="vbox1" onMouseEntered="#handleOnMouseEnteredVBox1"
+                      onMouseExited="#handleOnMouseExitedVBox1" onMouseClicked="#handleBlogEntryAction">
+                    <Label BorderPane.alignment="CENTER_LEFT" fx:id="titleLabel1" minWidth="390"  minHeight="15"/>
+                    <Label BorderPane.alignment="CENTER" fx:id="paragraphLabel1" minWidth="390"  minHeight="85"/>
+                </VBox>
+                <VBox alignment="CENTER_LEFT"  fx:id="vbox2" onMouseEntered="#handleOnMouseEnteredVBox2"
+                      onMouseExited="#handleOnMouseExitedVBox2" onMouseClicked="#handleBlogEntryAction2">
+                    <Label BorderPane.alignment="CENTER_LEFT" fx:id="titleLabel2" minWidth="390"  minHeight="15"/>
+                    <Label BorderPane.alignment="CENTER" fx:id="paragraphLabel2" minWidth="390"  minHeight="85"/>
+                </VBox>
+                <VBox alignment="CENTER_LEFT"  fx:id="vbox3" onMouseEntered="#handleOnMouseEnteredVBox3"
+                      onMouseExited="#handleOnMouseExitedVBox3" onMouseClicked="#handleBlogEntryAction3">
+                    <Label BorderPane.alignment="CENTER_LEFT" fx:id="titleLabel3" minWidth="390"  minHeight="15"/>
+                    <Label BorderPane.alignment="CENTER" fx:id="paragraphLabel3" minWidth="390"  minHeight="85"/>
+                </VBox>
+                <VBox alignment="CENTER_LEFT"  fx:id="vbox4" onMouseEntered="#handleOnMouseEnteredVBox4"
+                      onMouseExited="#handleOnMouseExitedVBox4" onMouseClicked="#handleBlogEntryAction4">
+                    <Label BorderPane.alignment="CENTER_LEFT" fx:id="titleLabel4" minWidth="390"  minHeight="15"/>
+                    <Label BorderPane.alignment="CENTER" fx:id="paragraphLabel4" minWidth="390"  minHeight="85"/>
+                </VBox>
+                <VBox alignment="CENTER_LEFT"  fx:id="vbox5" onMouseEntered="#handleOnMouseEnteredVBox5"
+                      onMouseExited="#handleOnMouseExitedVBox5" onMouseClicked="#handleBlogEntryAction5">
+                    <Label BorderPane.alignment="CENTER_LEFT" fx:id="titleLabel5" minWidth="390"  minHeight="15"/>
+                    <Label BorderPane.alignment="CENTER" fx:id="paragraphLabel5" minWidth="390"  minHeight="85"/>
+                </VBox>
+            </VBox>
+                <Label minWidth="30" alignment="CENTER_RIGHT" visible="false"></Label>
+            </HBox>
+        </center>
+        <right>
+            <Button BorderPane.alignment="CENTER_RIGHT" layoutX="100.0" layoutY="50.0"
+                    mnemonicParsing="false" onAction="#handleNextButtonAction"
+                    fx:id="buttonNext">
+                <graphic>
+                    <SVGPath content="M 35,10 L73,25 L35,40 Z" id="button-icon-shape" layoutX="100" />
+                    <!--SVGPath content="M 0,16 0,0 10,8 z" id="button-icon-shape" /-->
+                </graphic>
+            </Button>
+        </right>
+    </BorderPane>
+    <ProgressIndicator StackPane.alignment="CENTER" visible="true" minWidth="220"  minHeight="220" fx:id="progIndicator" />
+    <stylesheets>
+        <URL value="@Scenes.css"/>
+    </stylesheets>
+</StackPane>

@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import java.net.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.shape.*?>
+
+<?import com.sun.javafx.charts.Legend?>
+<StackPane xmlns:fx="http://javafx.com/fxml/1" alignment="CENTER"
+           fx:controller="net.diegoperalta.diegoperaltanet_desktop.EntrySceneController" fx:id="parentContainer"
+           styleClass="stackPane" >
+    <BorderPane fx:id="borderPane3" style="-fx-background-color: #252525;">
+        <top>
+            <HBox spacing="420" minHeight="50">
+                <Button StackPane.alignment="TOP_LEFT" layoutX="120" layoutY="85" text="Atrás"
+                    onAction="#handleBackButtonAction" fx:id="buttonBack" visible="true" />
+                <HBox spacing="30">
+                    <VBox>
+                        <Label minHeight="20" visible="false"></Label>
+                        <Slider BorderPane.alignment="CENTER" showTickMarks="true" blockIncrement="20"
+                                majorTickUnit="20" snapToTicks="true" minorTickCount="0" min="0" max="100" value="60" fx:id="slider">
+                        </Slider>
+                        <Label minHeight="20" visible="false"></Label>
+                    </VBox>
+                    <VBox>
+                        <Label minHeight="0" visible="false"></Label>
+                        <Button fx:id="buttonBlackWhite" onAction="#handleChangeColorButtonAction"></Button>
+                        <Label minHeight="20" visible="false"></Label>
+                    </VBox>
+                </HBox>
+                <HBox alignment="TOP_RIGHT" spacing="3">
+                    <Button BorderPane.alignment="TOP_RIGHT" minHeight="26" minWidth="26" onAction="#handleMinimizeButtonAction3"
+                        fx:id="minimizeButton3"/>
+                    <Button BorderPane.alignment="TOP_RIGHT" minHeight="26" minWidth="26" onAction="#handleCloseButtonAction3"
+                        fx:id="closeButton3"/>
+                </HBox>
+            </HBox>
+        </top>
+        <center>
+                <ScrollPane BorderPane.alignment="BOTTOM_CENTER" fitToWidth="true" hbarPolicy="NEVER"
+                            vbarPolicy="ALWAYS" pannable="false" fx:id="scrollPane">
+                    <Label visible="false" minHeight="25"/>
+                    <HBox>
+                    <VBox alignment="CENTER" spacing="1">
+                        <Label alignment="CENTER" fx:id="labelTitle0"/>
+                        <Label fx:id="labelContent"/>
+                    </VBox>
+                        <Label minWidth="10" alignment="CENTER_RIGHT"></Label>
+                    </HBox>
+                </ScrollPane>
+        </center>
+        <left>
+            <Label alignment="CENTER_LEFT" minWidth="110" visible="false"></Label>
+        </left>
+        <right>
+            <Label alignment="CENTER_RIGHT" minWidth="100" visible="false"></Label>
+        </right>
+        <bottom>
+            <Label minHeight="40" visible="false"></Label>
+        </bottom>
+    </BorderPane>
+    <ProgressIndicator StackPane.alignment="CENTER" visible="true" minWidth="220"  minHeight="220" fx:id="progIndicator"/>
+    <stylesheets>
+        <URL value="@Scenes.css"/>
+    </stylesheets>
+</StackPane>
