@@ -11,8 +11,6 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
-import jfxtras.styles.jmetro.JMetro;
-import jfxtras.styles.jmetro.Style;
 
 /**
  *
@@ -24,14 +22,17 @@ public class DiegoPeraltaNetDesktop extends Application {
     public void start(Stage stage) throws Exception {
         Parent root = FXMLLoader.load(getClass()
                 .getResource("menu.fxml"));
-        Scene scene = new Scene(root, 1200, 750);
+        Scene scene = new Scene(root, 1200, 800);
         //JMetro jMetro = new JMetro(root, Style.DARK);
         //jMetro.setScene(scene);
-        stage.setResizable(false);
+        stage.setResizable(true);
         stage.setMaximized(true);
         stage.setAlwaysOnTop(true);
         stage.centerOnScreen();
+        //stage.initStyle(StageStyle.DECORATED);
         stage.initStyle(StageStyle.TRANSPARENT);
+        stage.setWidth(1200);
+        stage.setHeight(800);
         stage.setTitle("diegoperalta.net");
         stage.setScene(scene);
         stage.show();

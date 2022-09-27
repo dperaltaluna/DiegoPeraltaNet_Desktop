@@ -13,46 +13,63 @@
 <StackPane xmlns:fx="http://javafx.com/fxml/1" alignment="CENTER" 
            fx:controller="net.diegoperalta.diegoperaltanet_desktop.MenuController" fx:id="parentContainer"
             styleClass="stackPane" >
-    <BorderPane id="borderPane1" styleClass="backgroundMenu">
+    <BorderPane fx:id="borderPane1">
         <top>
-            <HBox alignment="TOP_RIGHT" spacing="3">
-                <Button BorderPane.alignment="TOP_RIGHT" minHeight="26" minWidth="26" text="" onAction="#handleMinimizeButtonAction"
-                        fx:id="minimizeButton"/>
-                <Button BorderPane.alignment="TOP_RIGHT" minHeight="26" minWidth="26" text="" onAction="#handleCloseButtonAction"
-                         fx:id="closeButton"/>
-            </HBox>
+            <AnchorPane BorderPane.alignment="TOP_CENTER">
+                <HBox alignment="TOP_RIGHT" AnchorPane.topAnchor="1" AnchorPane.rightAnchor="1" spacing="3">
+                    <padding><Insets top="1" right="1" left="0" bottom="10"></Insets></padding>
+                    <Button alignment="TOP_RIGHT" minWidth="26" minHeight="26" onAction="#handleMinimizeButtonAction"
+                            fx:id="minimizeButton" AnchorPane.topAnchor="1" AnchorPane.rightAnchor="1">
+                    </Button>
+                    <Button alignment="TOP_RIGHT" minWidth="26" minHeight="26" onAction="#handleCloseButtonAction"
+                            fx:id="closeButton" AnchorPane.topAnchor="1" AnchorPane.rightAnchor="1" >
+                    </Button>
+                </HBox>
+            </AnchorPane>
         </top>
         <center>
-            <!--<Text fx:id="texto1"   text="Escena 1" opacity="1"  layoutX="250" layoutY="240" /> -->
-            <Pane>
-                <Button layoutX="755" layoutY="344" minWidth="300"  minHeight="130" fx:id="podcastButton"
-                onMouseEntered="#handleOnMouseEnteredPodButton" 
-                onMouseExited="#handleOnMouseExitedPodButton"/>
-                <Button layoutX="781" layoutY="475" minWidth="170"  minHeight="84"  fx:id="socialMediaButton"
-                onMouseEntered="#handleOnMouseEnteredRSButton"
-                onMouseExited="#handleOnMouseExitedRSButton"/>
-                <Label layoutX="710" layoutY="510" minWidth="150"  minHeight="45" fx:id="label2" rotate="51"/>
-                <Label layoutX="897" layoutY="512" minWidth="125"  minHeight="1" fx:id="label3" rotate="44"/>
-                <!--<Button layoutX="781" layoutY="468" minWidth="170"  minHeight="84" fx:id="socialMediaButton"    
-                onMouseEntered="#handleOnMouseEnteredRSButton" rotate="53" 
-                onMouseExited="#handleOnMouseExitedRSButton"/>-->
-                <Button layoutX="275" layoutY="127" minWidth="445" minHeight="405" fx:id="blogButton"
-                onMouseEntered="#handleOnMouseEnteredBlogButton"   
-                onMouseExited="#handleOnMouseExitedBlogButton" onAction="#handleButtonAction"/>
-                <Label layoutX="301" layoutY="163" minWidth="392"  minHeight="238" fx:id="labelBlackScreen"/>
-            </Pane>
+            <AnchorPane BorderPane.alignment="CENTER">
+            <VBox BorderPane.alignment="BOTTOM_CENTER" spacing="0">
+                <!--<Text fx:id="texto1"   text="Escena 1" opacity="1"  layoutX="250" layoutY="240" /> -->
+                <Pane BorderPane.alignment="BOTTOM_CENTER" styleClass="backgroundMenu" AnchorPane.leftAnchor="1"
+                      AnchorPane.rightAnchor="1" AnchorPane.topAnchor="1" AnchorPane.bottomAnchor="0"
+                      prefWidth="1050" prefHeight="617"
+                      minWidth="1050" minHeight="617" maxWidth="1050" maxHeight="617">
+                    <Button layoutX="750" layoutY="341" minWidth="300"  minHeight="130" prefWidth="300" prefHeight="130"
+                            maxWidth="300" maxHeight="130" fx:id="podcastButton"
+                            onMouseEntered="#handleOnMouseEnteredPodButton"
+                            onMouseExited="#handleOnMouseExitedPodButton"/>
+                    <Button layoutX="778" layoutY="474" minWidth="170" minHeight="84" prefWidth="170" prefHeight="84"
+                            maxWidth="170" maxHeight="84" fx:id="socialMediaButton"
+                            onMouseEntered="#handleOnMouseEnteredRSButton"
+                            onMouseExited="#handleOnMouseExitedRSButton"/>
+                    <Label layoutX="710" layoutY="510" minWidth="150" minHeight="45" prefWidth="150" prefHeight="45"
+                           maxWidth="150" maxHeight="45" fx:id="label2" rotate="51"/>
+                    <Label layoutX="897" layoutY="512" minWidth="125"  minHeight="27" prefWidth="125" prefHeight="27"
+                           maxWidth="125" maxHeight="27" fx:id="label3" rotate="44"/>
+                    <!--<Button layoutX="781" layoutY="468" minWidth="170"  minHeight="84" fx:id="socialMediaButton"
+                    onMouseEntered="#handleOnMouseEnteredRSButton" rotate="53"
+                    onMouseExited="#handleOnMouseExitedRSButton"/>-->
+                    <Button layoutX="270" layoutY="125" minWidth="445" minHeight="405" prefWidth="445" prefHeight="405"
+                            maxWidth="445" maxHeight="405" fx:id="blogButton"
+                            onMouseEntered="#handleOnMouseEnteredBlogButton"
+                            onMouseExited="#handleOnMouseExitedBlogButton" onAction="#handleButtonAction"/>
+                    <Label layoutX="297" layoutY="161" minWidth="392" minHeight="238" prefWidth="392" prefHeight="238"
+                           maxWidth="392" maxHeight="238" fx:id="labelBlackScreen"/>
+                </Pane>
+                <Label alignment="BOTTOM_CENTER" prefWidth="1055" prefHeight="17" minWidth="1055" minHeight="17"
+                       maxWidth="1055" maxHeight="17" fx:id="labelBottom" visible="true" AnchorPane.leftAnchor="1"
+                       AnchorPane.rightAnchor="1">
+                </Label>
+            </VBox>
+            </AnchorPane>
         </center>
         <left>
-            <Button BorderPane.alignment="CENTER" text="Carga Blog" layoutX="126" layoutY="90"
-                    visible="false" disable="true" fx:id="button1" />
+            <Label alignment="CENTER_LEFT" minWidth="110" visible="false"></Label>
         </left>
-        <bottom>
-            <Pane>
-                <Label alignment="BASELINE_CENTER" layoutX="69" layoutY="45" minWidth="1059" minHeight="31"
-                       fx:id="labelBottom">
-                </Label>
-            </Pane>
-        </bottom>
+        <right>
+            <Label alignment="CENTER_RIGHT" minWidth="100" visible="false"></Label>
+        </right>
     </BorderPane>
     <stylesheets>
          <URL value="@Scenes.css"/>

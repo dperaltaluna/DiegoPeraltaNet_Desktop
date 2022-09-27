@@ -8,7 +8,6 @@ import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.concurrent.Task;
 import javafx.event.ActionEvent;
-import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -17,13 +16,11 @@ import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.StackPane;
-import javafx.scene.text.Font;
 import javafx.stage.Stage;
 import javafx.util.Duration;
 import jfxtras.styles.jmetro.JMetro;
 import jfxtras.styles.jmetro.Style;
 
-import javax.script.Bindings;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ArrayList;
@@ -75,6 +72,7 @@ public class EntrySceneController implements Initializable {
         //jMetro.setScene(scrollPane.getScene());
         //JMetro jMetro1 = new JMetro(slider, Style.DARK);
         //labelContent.setStyle("-fx-font-size: 20px;");
+
         changeLetterSize();
         labelTitle0.setText(PageBlogEntries.entries
                 .get(PageBlogEntries.indexEntrySelected).getTitle());

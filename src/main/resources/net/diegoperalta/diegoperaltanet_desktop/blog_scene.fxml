@@ -15,20 +15,27 @@
            fx:id="parentContainer" styleClass="stackPane">
     <BorderPane id="borderPane2">
         <top>
-            <HBox alignment="TOP_LEFT" spacing="438">
-                <Button BorderPane.alignment="TOP_LEFT" layoutX="120" layoutY="85" text="Menú"
-                        onAction="#handleLeftButtonAction" fx:id="buttonLeft" visible="true" />
-                <Label BorderPane.alignment="BOTTOM_CENTER" text="Cargando Entradas..."
-                       layoutX="500" layoutY="50" minHeight="40"  fx:id="labelLoading" visible="true" />
+            <AnchorPane BorderPane.alignment="TOP_CENTER">
+                <padding> <Insets top="1" left="1"></Insets>
+                </padding>
+                <Button alignment="TOP_LEFT" text="Menú"
+                        onAction="#handleLeftButtonAction" fx:id="buttonLeft" visible="true" AnchorPane.leftAnchor="1"
+                AnchorPane.topAnchor="1">
+                </Button>
+                <Label alignment="CENTER" text="Cargando Entradas..."
+                       layoutX="500" layoutY="50" minHeight="40"  fx:id="labelLoading" visible="true"
+                AnchorPane.topAnchor="1"/>
                 <!--<ProgressBar BorderPane.alignment="TOP_RIGHT" layoutY="50" minHeight="40" visible="false" fx:id="progBar" />-->
                 <!--ProgressIndicator BorderPane.alignment="TOP_RIGHT" visible="true" minHeight="40" fx:id="progIndicator" />-->
-                <HBox alignment="TOP_RIGHT" spacing="3">
-                    <Button BorderPane.alignment="TOP_RIGHT" minHeight="26" minWidth="26" text="" onAction="#handleMinimizeButtonAction2"
+                <HBox alignment="TOP_RIGHT" AnchorPane.rightAnchor="1" AnchorPane.topAnchor="1" spacing="3">
+                    <padding> <Insets top="0" right="1" left="1" bottom="1"></Insets>
+                    </padding>
+                    <Button alignment="TOP_RIGHT" minHeight="26" minWidth="26" onAction="#handleMinimizeButtonAction2"
                             fx:id="minimizeButton2"/>
-                    <Button BorderPane.alignment="TOP_RIGHT" minHeight="26" minWidth="26" text="" onAction="#handleCloseButtonAction2"
+                    <Button alignment="TOP_RIGHT" minHeight="26" minWidth="26" onAction="#handleCloseButtonAction2"
                             fx:id="closeButton2"/>
                 </HBox>
-            </HBox>
+            </AnchorPane>
         </top>
         <left>
             <Label BorderPane.alignment="CENTER_LEFT" minWidth="120" text=" "

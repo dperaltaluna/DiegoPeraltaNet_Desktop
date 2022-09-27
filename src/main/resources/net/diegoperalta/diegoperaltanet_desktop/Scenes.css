@@ -17,9 +17,7 @@ and open the template in the editor.
 .backgroundMenu {
     -fx-background-image: url("images/background-coworking-space-f.jpg");
     -fx-background-position: center center;
-    -fx-background-size: 1050, 620;
-
-    /*-fx-background-size: 1050, 617;*/
+    -fx-background-size: 1050, 617;
     -fx-background-repeat: no-repeat;
 }
 
@@ -321,7 +319,7 @@ and open the template in the editor.
 
 
 #labelContent {
-    -fx-font-size: 22px;
+    -fx-font-size: 26px;
     /*-fx-font-weight: bold;*/
     -fx-font-family: Verdana;
     -fx-alignment: center-left;

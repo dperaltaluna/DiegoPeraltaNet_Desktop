@@ -16,33 +16,24 @@
            styleClass="stackPane" >
     <BorderPane fx:id="borderPane3" style="-fx-background-color: #252525;">
         <top>
-            <HBox spacing="420" minHeight="50">
-                <Button StackPane.alignment="TOP_LEFT" layoutX="120" layoutY="85" text="Atrás"
-                    onAction="#handleBackButtonAction" fx:id="buttonBack" visible="true" />
-                <HBox spacing="30">
-                    <VBox>
-                        <Label minHeight="20" visible="false"></Label>
-                        <Slider BorderPane.alignment="CENTER" showTickMarks="true" blockIncrement="20"
-                                majorTickUnit="20" snapToTicks="true" minorTickCount="0" min="0" max="100" value="60" fx:id="slider">
-                        </Slider>
-                        <Label minHeight="20" visible="false"></Label>
-                    </VBox>
-                    <VBox>
-                        <Label minHeight="0" visible="false"></Label>
-                        <Button fx:id="buttonBlackWhite" onAction="#handleChangeColorButtonAction"></Button>
-                        <Label minHeight="20" visible="false"></Label>
-                    </VBox>
-                </HBox>
-                <HBox alignment="TOP_RIGHT" spacing="3">
+            <AnchorPane BorderPane.alignment="TOP_CENTER">
+                <padding> <Insets top="1" left="1" right="1" bottom="1"></Insets>
+                </padding>
+                <Button alignment="TOP_LEFT" text="Atrás"
+                    onAction="#handleBackButtonAction" fx:id="buttonBack" visible="true"
+                        AnchorPane.leftAnchor="1" AnchorPane.topAnchor="1">
+                </Button>
+
+                <HBox alignment="TOP_RIGHT" spacing="3" AnchorPane.topAnchor="1" AnchorPane.rightAnchor="1">
                     <Button BorderPane.alignment="TOP_RIGHT" minHeight="26" minWidth="26" onAction="#handleMinimizeButtonAction3"
                         fx:id="minimizeButton3"/>
                     <Button BorderPane.alignment="TOP_RIGHT" minHeight="26" minWidth="26" onAction="#handleCloseButtonAction3"
                         fx:id="closeButton3"/>
                 </HBox>
-            </HBox>
+            </AnchorPane>
         </top>
         <center>
-                <ScrollPane BorderPane.alignment="BOTTOM_CENTER" fitToWidth="true" hbarPolicy="NEVER"
+                <ScrollPane BorderPane.alignment="CENTER" fitToWidth="true" hbarPolicy="NEVER"
                             vbarPolicy="ALWAYS" pannable="false" fx:id="scrollPane">
                     <Label visible="false" minHeight="25"/>
                     <HBox>
@@ -61,7 +52,19 @@
             <Label alignment="CENTER_RIGHT" minWidth="100" visible="false"></Label>
         </right>
         <bottom>
-            <Label minHeight="40" visible="false"></Label>
+            <AnchorPane BorderPane.alignment="BOTTOM_CENTER">
+                <Label minHeight="40" visible="false"></Label>
+                <HBox BorderPane.alignment="BOTTOM_RIGHT" alignment="BOTTOM_RIGHT" AnchorPane.rightAnchor="1" spacing="50">
+                    <padding><Insets left="1" bottom="1" right="1"></Insets></padding>
+                    <Slider BorderPane.alignment="BOTTOM_RIGHT" showTickMarks="true" blockIncrement="20"
+                            majorTickUnit="20" snapToTicks="true" minorTickCount="0" min="0" max="100" value="60"
+                            fx:id="slider" AnchorPane.bottomAnchor="1" AnchorPane.rightAnchor="1">
+                    </Slider>
+                    <Button BorderPane.alignment="BOTTOM_RIGHT" fx:id="buttonBlackWhite"
+                            onAction="#handleChangeColorButtonAction" AnchorPane.bottomAnchor="1" AnchorPane.rightAnchor="1">
+                    </Button>
+                </HBox>
+            </AnchorPane>
         </bottom>
     </BorderPane>
     <ProgressIndicator StackPane.alignment="CENTER" visible="true" minWidth="220"  minHeight="220" fx:id="progIndicator"/>

@@ -5,9 +5,6 @@ package net.diegoperalta.diegoperaltanet_desktop;
  * and open the template in the editor.
  */
 
-import java.io.IOException;
-import java.net.URL;
-import java.util.ResourceBundle;
 import javafx.animation.Interpolator;
 import javafx.animation.KeyFrame;
 import javafx.animation.KeyValue;
@@ -27,6 +24,10 @@ import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.StackPane;
 import javafx.stage.Stage;
 import javafx.util.Duration;
+
+import java.io.IOException;
+import java.net.URL;
+import java.util.ResourceBundle;
 
 /**
  *
@@ -65,7 +66,7 @@ public class MenuController implements Initializable {
             throws IOException {
         //if (getClickCount)
         //label.setText("Hello World!");
-        button1.setDisable(true);
+        //button1.setDisable(true);
         blogButton.setDisable(true);
         //event.getClass().get
 
@@ -73,7 +74,7 @@ public class MenuController implements Initializable {
 
         Parent root = FXMLLoader.load(getClass()
                 .getResource("blog_scene.fxml"));
-        Scene scene = button1.getScene();
+        Scene scene = blogButton.getScene();
         root.translateXProperty().set(scene.getWidth());
         parentContainer.getChildren().add(root);
         Timeline timeline = new Timeline();
