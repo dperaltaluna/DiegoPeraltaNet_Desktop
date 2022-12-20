@@ -24,7 +24,6 @@ import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.StackPane;
 import javafx.stage.Stage;
 import javafx.util.Duration;
-
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -42,13 +41,13 @@ public class MenuController implements Initializable {
     private BorderPane borderPane1;
 
     @FXML
-    private Button button1;
-
-    @FXML
     private Label labelBlackScreen;
 
     @FXML
     private Button blogButton;
+
+    @FXML
+    private Button podcastButton;
 
     @FXML
     public Button closeButton;
@@ -64,17 +63,30 @@ public class MenuController implements Initializable {
     @FXML
     private void handleButtonAction(ActionEvent event)
             throws IOException {
-        //if (getClickCount)
-        //label.setText("Hello World!");
-        //button1.setDisable(true);
         blogButton.setDisable(true);
-        //event.getClass().get
-
-        //blogButton.disarm();
 
         Parent root = FXMLLoader.load(getClass()
                 .getResource("blog_scene.fxml"));
         Scene scene = blogButton.getScene();
+        root.translateXProperty().set(scene.getWidth());
+        parentContainer.getChildren().add(root);
+        Timeline timeline = new Timeline();
+        KeyValue kv = new KeyValue(root.translateXProperty(),
+                0, Interpolator.EASE_IN);
+        KeyFrame kf = new KeyFrame(Duration.seconds(0.3), kv);
+        timeline.getKeyFrames().add(kf);
+        timeline.setOnFinished( event1 -> {
+            parentContainer.getChildren().remove(borderPane1);
+        });
+        timeline.play();
+    }
+
+    @FXML
+    private void handlePodcastButtonAction(ActionEvent event) throws IOException {
+        podcastButton.setDisable(true);
+        Parent root = FXMLLoader.load(getClass()
+                .getResource("podcast_scene.fxml"));
+        Scene scene = podcastButton.getScene();
         root.translateXProperty().set(scene.getWidth());
         parentContainer.getChildren().add(root);
         Timeline timeline = new Timeline();

@@ -5,15 +5,15 @@ package net.diegoperalta.diegoperaltanet_desktop;
  * and open the template in the editor.
  */
 
-import java.io.IOException;
-import java.util.ArrayList;
 import org.jsoup.Connection;
 import org.jsoup.HttpStatusException;
-
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
+
+import java.io.IOException;
+import java.util.ArrayList;
 
 /**
  *
@@ -54,12 +54,62 @@ public class HTMLParser {
         }
     }
 
+    public void parsePodcastDoc() {
+        try {
+            doc = Jsoup.connect("http://diegoperalta.net/category/podcast/")
+                    .method(Connection.Method.GET)
+                    .header("Connection", "close")
+                    .userAgent("Jsoup client")
+                    //.maxBodySize(1)
+                    .timeout(10000)
+                    .ignoreContentType(true)
+                    .ignoreHttpErrors(true)
+                    .referrer("<div class=\"older-post no-post-thumbnail\">")
+                    .get();
+
+        } catch (HttpStatusException e) {
+            PageBlogEntries.isLastPage = true;
+            BlogSceneController.numPage--;
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
 
     public void parseDoc(int index) {
         String strNumPage = ""+index;
         try {
             doc = Jsoup
                     .connect("http://diegoperalta.net/category/blog/page/"+strNumPage)
+                    .method(Connection.Method.GET)
+                    .header("Connection", "close")
+                    .userAgent("Jsoup client")
+                    //.maxBodySize(1)
+                    .timeout(10000)
+                    .ignoreContentType(true)
+                    .ignoreHttpErrors(true)
+                    .referrer("<div class=\"older-post no-post-thumbnail\">")
+                    //.data("class", "older-post no-post-thumbnail")
+                    .get();
+        } catch (NullPointerException e) {
+            e.printStackTrace();
+        } catch (HttpStatusException e) {
+            PageBlogEntries.isLastPage = true;
+            //numLastPage = index--;
+            PageBlogEntries.numLastPage = index--;
+            BlogSceneController.numPage--;
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void parsePodcastDoc(int index) {
+        String strNumPage = ""+index;
+        try {
+            doc = Jsoup
+                    .connect("http://diegoperalta.net/category/podcast/page/"+strNumPage)
                     .method(Connection.Method.GET)
                     .header("Connection", "close")
                     .userAgent("Jsoup client")

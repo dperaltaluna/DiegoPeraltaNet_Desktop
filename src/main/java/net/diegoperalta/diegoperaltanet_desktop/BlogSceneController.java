@@ -5,10 +5,6 @@ package net.diegoperalta.diegoperaltanet_desktop;
  * and open the template in the editor.
  */
 
-import java.io.IOException;
-import java.net.URL;
-import java.util.ArrayList;
-import java.util.ResourceBundle;
 import javafx.animation.Interpolator;
 import javafx.animation.KeyFrame;
 import javafx.animation.KeyValue;
@@ -29,6 +25,11 @@ import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 import javafx.util.Duration;
+
+import java.io.IOException;
+import java.net.URL;
+import java.util.ArrayList;
+import java.util.ResourceBundle;
 
 /**
  * FXML Controller class
@@ -119,13 +120,14 @@ public class BlogSceneController implements Initializable {
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        //numPage = 1;
-
         System.out.println("Initialize blog.");
 
         buttonLeft.setDisable(false);
         if (numPage > 1) {
             buttonPrevious.setVisible(true);
+        } else {
+            buttonPrevious.setVisible(false);
+            buttonPrevious.setDisable(true);
         }
         labelLoading.setVisible(true);
         progIndicator.setVisible(true);
@@ -137,7 +139,7 @@ public class BlogSceneController implements Initializable {
         progIndicator.setVisible(true);
         labelLoading.setText("Cargando entradas...");
         labelLoading.setVisible(true);
-
+        buttonPrevious.setDisable(true);
 
             // Create a background Task
             Task<Void> task = new Task<>() {
@@ -175,6 +177,8 @@ public class BlogSceneController implements Initializable {
                     buttonNext.setVisible(true);
                     buttonNext.setDisable(false);
                 }
+                labelLoading.setVisible(false);
+                progIndicator.setVisible(false);
                 System.out.println("Task failed");
                 wse.getSource().getException().printStackTrace();
             });
@@ -187,15 +191,19 @@ public class BlogSceneController implements Initializable {
                 page.printPage();
                 // if (pageIndex > 1)
                 buttonPrevious.setDisable(false);
+                //buttonPrevious.setVisible(true);
                 // else
                    // buttonPrevious.setDisable(true);
                 if (numPage == PageBlogEntries.numLastPage) {
                     buttonNext.setVisible(false);
                     buttonNext.setDisable(true);
+                    PageBlogEntries.numLastPage = numPage;
                 } else {
                     buttonNext.setVisible(true);
                     buttonNext.setDisable(false);
                 }
+                labelLoading.setVisible(false);
+                progIndicator.setVisible(false);
                 System.out.println("Done! \n");
             });
             // Before starting our task, we need to bind our UI values to the properties on the task
@@ -261,7 +269,7 @@ public class BlogSceneController implements Initializable {
     @FXML
     private void handlePreviousButtonAction(ActionEvent event)
             throws IOException {
-        int pageIndex = numPage-2;
+        int pageIndex = numPage-1;
         page.getPages().remove(pageIndex);
         labelLoading.setVisible(true);
         progIndicator.setVisible(true);
@@ -269,14 +277,20 @@ public class BlogSceneController implements Initializable {
         buttonNext.setDisable(true);
         if (PageBlogEntries.isLastPage) {
             buttonNext.setVisible(true);
+            buttonNext.setDisable(true);
             PageBlogEntries.isLastPage = false;
         }
-        buttonNext.setVisible(true);
-        numPage--;
-        if (numPage == 1) {
-            buttonPrevious.setVisible(false);
+        if (numPage == PageBlogEntries.numLastPage) {
+            buttonNext.setVisible(false);
+            loadEntries(--numPage);
+        } else {
+            buttonNext.setVisible(true);
+            --numPage;
+            if (numPage == 1) {
+                buttonPrevious.setVisible(false);
+            }
+            loadEntries(numPage);
         }
-        loadEntries(numPage);
     }
 
     @FXML
@@ -412,11 +426,13 @@ public class BlogSceneController implements Initializable {
         //loadEntries();
         if (numPage == PageBlogEntries.numLastPage) {
             buttonNext.setVisible(false);
+            buttonNext.setDisable(true);
         }
 
         switch(page.getEntries().size()) {
             case 0:
                 buttonNext.setVisible(false);
+                PageBlogEntries.numLastPage = numPage;
                 break;
             case 1:
                 titleLabel1.setText(page.getEntries().get(0).getTitle());
@@ -489,10 +505,6 @@ public class BlogSceneController implements Initializable {
                 PageBlogEntries.numLastPage = numPage;
                 break;
             default:
-                //if (numPage == HTMLParser.numLastPage) {
-                if (numPage == PageBlogEntries.numLastPage) {
-                    buttonNext.setVisible(false);
-                }
                 vbox1.setVisible(true);
                 vbox2.setVisible(true);
                 vbox3.setVisible(true);
@@ -508,10 +520,27 @@ public class BlogSceneController implements Initializable {
                 paragraphLabel4.setText(page.getEntries().get(3).getParagraph());
                 titleLabel5.setText(page.getEntries().get(4).getTitle());
                 paragraphLabel5.setText(page.getEntries().get(4).getParagraph());
+                if (numPage == PageBlogEntries.numLastPage) {
+                    buttonNext.setVisible(false);
+                    buttonNext.setDisable(true);
+                    buttonPrevious.setDisable(false);
+                } else {
+                    buttonNext.setDisable(false);
+                    buttonPrevious.setDisable(false);
+                }
+                if (titleLabel5.getText()
+                        .equalsIgnoreCase("Los 3 pilares que mejorarán tu calidad de vida de inmediato y a largo plazo.")) {
+                    PageBlogEntries.numLastPage = numPage;
+                    buttonNext.setVisible(false);
+                    buttonNext.setDisable(true);
+                    buttonPrevious.setDisable(false);
+                    System.out.println("Entró en última página.");
+                } else {
+                    buttonNext.setDisable(false);
+                    buttonPrevious.setDisable(false);
+                }
+                labelLoading.setVisible(false);
+                progIndicator.setVisible(false);
         }
-        labelLoading.setVisible(false);
-        progIndicator.setVisible(false);
-        buttonNext.setDisable(false);
-        buttonPrevious.setDisable(false);
     }
 }

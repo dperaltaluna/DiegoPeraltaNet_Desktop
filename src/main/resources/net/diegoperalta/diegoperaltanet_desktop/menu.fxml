@@ -30,7 +30,6 @@
         <center>
             <AnchorPane BorderPane.alignment="CENTER">
             <VBox BorderPane.alignment="BOTTOM_CENTER" spacing="0">
-                <!--<Text fx:id="texto1"   text="Escena 1" opacity="1"  layoutX="250" layoutY="240" /> -->
                 <Pane BorderPane.alignment="BOTTOM_CENTER" styleClass="backgroundMenu" AnchorPane.leftAnchor="1"
                       AnchorPane.rightAnchor="1" AnchorPane.topAnchor="1" AnchorPane.bottomAnchor="0"
                       prefWidth="1050" prefHeight="617"
@@ -38,7 +37,8 @@
                     <Button layoutX="750" layoutY="341" minWidth="300"  minHeight="130" prefWidth="300" prefHeight="130"
                             maxWidth="300" maxHeight="130" fx:id="podcastButton"
                             onMouseEntered="#handleOnMouseEnteredPodButton"
-                            onMouseExited="#handleOnMouseExitedPodButton"/>
+                            onMouseExited="#handleOnMouseExitedPodButton"
+                            onAction="#handlePodcastButtonAction"/>
                     <Button layoutX="778" layoutY="474" minWidth="170" minHeight="84" prefWidth="170" prefHeight="84"
                             maxWidth="170" maxHeight="84" fx:id="socialMediaButton"
                             onMouseEntered="#handleOnMouseEnteredRSButton"

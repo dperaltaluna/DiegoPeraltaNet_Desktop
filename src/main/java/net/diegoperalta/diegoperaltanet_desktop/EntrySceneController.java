@@ -55,6 +55,9 @@ public class EntrySceneController implements Initializable {
     private ArrayList<String> entry = new ArrayList<>();
     private String completeEntry = "";
     private int fontSizeSelected = 26;
+
+    private int titleSizeSelected = 28;
+
     private boolean isBlackSelected = true;
 
     /**
@@ -72,10 +75,9 @@ public class EntrySceneController implements Initializable {
         //jMetro.setScene(scrollPane.getScene());
         //JMetro jMetro1 = new JMetro(slider, Style.DARK);
         //labelContent.setStyle("-fx-font-size: 20px;");
-
-        changeLetterSize();
         labelTitle0.setText(PageBlogEntries.entries
                 .get(PageBlogEntries.indexEntrySelected).getTitle());
+        changeLetterSize();
     }
 
     private void loadEntryContent(String link) {
@@ -118,12 +120,14 @@ public class EntrySceneController implements Initializable {
     }
 
     private void changeLetterSize() {
+
         slider.valueProperty().addListener(new ChangeListener<Number>() {
             public void changed(ObservableValue<? extends Number> ov,
                                 Number old_val, Number new_val) {
                 int index = new_val.intValue();
                 if (index >= 0 && index < 10) {
                     fontSizeSelected = 20;
+                    titleSizeSelected = 22;
                     if (isBlackSelected) {
                         setBlackThemeComponents();
                     } else {
@@ -133,6 +137,7 @@ public class EntrySceneController implements Initializable {
                 }
                 if (index >= 10 && index < 30) {
                     fontSizeSelected = 22;
+                    titleSizeSelected = 24;
                     if (isBlackSelected) {
                         setBlackThemeComponents();
                     } else {
@@ -144,6 +149,7 @@ public class EntrySceneController implements Initializable {
                 }
                 if (index >= 30 && index < 50) {
                     fontSizeSelected = 24;
+                    titleSizeSelected = 26;
                     if (isBlackSelected) {
                         setBlackThemeComponents();
                     } else {
@@ -155,6 +161,7 @@ public class EntrySceneController implements Initializable {
                 }
                 if (index >= 50 && index < 70) {
                     fontSizeSelected = 26;
+                    titleSizeSelected = 28;
                     if (isBlackSelected) {
                         setBlackThemeComponents();
                     } else {
@@ -166,6 +173,7 @@ public class EntrySceneController implements Initializable {
                 }
                 if (index >= 70 && index < 90) {
                     fontSizeSelected = 28;
+                    titleSizeSelected = 30;
                     if (isBlackSelected) {
                         setBlackThemeComponents();
                     } else {
@@ -177,6 +185,7 @@ public class EntrySceneController implements Initializable {
                 }
                 if (index >= 90) {
                     fontSizeSelected = 30;
+                    titleSizeSelected = 32;
                     if (isBlackSelected) {
                         setBlackThemeComponents();
                     } else {
@@ -204,11 +213,11 @@ public class EntrySceneController implements Initializable {
     private void setBlackThemeComponents() {
         JMetro jMetro = new JMetro(scrollPane, Style.DARK);
         scrollPane.setStyle("-fx-background-color: transparent;");
+        labelTitle0.setStyle("-fx-text-fill: snow; -fx-font-family: Verdana; " +
+                "-fx-font-size: " + Integer.toString(titleSizeSelected) + "px;");
         labelContent.setStyle("-fx-text-fill: snow; -fx-font-family: Verdana;" +
                 "-fx-font-size: " + fontSizeSelected + "px;");
         borderPane3.setStyle("-fx-background-color: #252525;");
-        labelTitle0.setStyle("-fx-text-fill: snow; -fx-font-family: Verdana; " +
-                "-fx-font-size: " + Integer.toString(fontSizeSelected+2) + "px;");
     }
 
     private void setWhiteThemeComponents() {
@@ -217,11 +226,11 @@ public class EntrySceneController implements Initializable {
         scrollPane.setStyle("-fx-background-color: #e8e8e8;");
         //scrollPane.setStyle(".viewport { -fx-background-color: transparent; }");
         //scrollPane.setStyle(".track {fx-background-color: black;}");
+        labelTitle0.setStyle("-fx-text-fill: black; -fx-font-family: Verdana;" +
+                "-fx-font-size: " + Integer.toString(titleSizeSelected) + "px;");
         labelContent.setStyle("-fx-text-fill: black; -fx-font-family: Verdana; -fx-font-weight: normal;" +
                 "-fx-font-size: " + fontSizeSelected + "px;");
         borderPane3.setStyle("-fx-background-color: #e8e8e8;");
-        labelTitle0.setStyle("-fx-text-fill: black; -fx-font-family: Verdana;" +
-                "-fx-font-size: " + Integer.toString(fontSizeSelected+2) + "px;");
     }
 
     @FXML

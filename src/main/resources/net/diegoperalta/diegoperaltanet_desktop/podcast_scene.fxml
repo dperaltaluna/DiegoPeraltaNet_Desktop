@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import java.net.*?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.shape.SVGPath?>
+<?import javafx.scene.web.WebView?>
+<?import javafx.scene.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.shape.*?>
+
+<StackPane xmlns:fx="http://javafx.com/fxml/1" alignment="CENTER"
+           fx:controller="net.diegoperalta.diegoperaltanet_desktop.PodcastSceneController"
+           fx:id="parentContainer" styleClass="stackPane">
+    <BorderPane id="borderPane4">
+        <top>
+            <AnchorPane BorderPane.alignment="TOP_CENTER">
+                <padding> <Insets top="1" left="1"></Insets>
+                </padding>
+                <Button alignment="TOP_LEFT" text="Menú"
+                        onAction="#handleMenuButtonAction" fx:id="buttonLeft" visible="true" AnchorPane.leftAnchor="1"
+                        AnchorPane.topAnchor="1">
+                </Button>
+                <Label BorderPane.alignment="CENTER" text="Cargando Episodios del Podcast..."
+                       layoutX="500" layoutY="50" minHeight="40"  fx:id="labelLoading" visible="true"
+                       AnchorPane.topAnchor="1"/>
+                <HBox alignment="TOP_RIGHT" AnchorPane.rightAnchor="1" AnchorPane.topAnchor="1" spacing="3">
+                    <padding> <Insets top="0" right="1" left="1" bottom="1"></Insets>
+                    </padding>
+                    <Button alignment="TOP_RIGHT" minHeight="26" minWidth="26" onAction="#handleMinimizeButtonAction"
+                            fx:id="minimizeButton"/>
+                    <Button alignment="TOP_RIGHT" minHeight="26" minWidth="26" onAction="#handleCloseButtonAction"
+                            fx:id="closeButton"/>
+                </HBox>
+            </AnchorPane>
+        </top>
+        <center>
+            <HBox>
+                <Label minWidth="30" alignment="CENTER_LEFT" visible="false"></Label>
+                <VBox alignment="CENTER_LEFT" fx:id="vbox0">
+                    <VBox alignment="CENTER_LEFT" fx:id="vbox1" onMouseEntered="#handleOnMouseEnteredVBox1"
+                          onMouseExited="#handleOnMouseExitedVBox1" onMouseClicked="#handleBlogEntryAction">
+                        <Label BorderPane.alignment="CENTER_LEFT" fx:id="titleLabel1" minWidth="390"  minHeight="15"/>
+                        <Label BorderPane.alignment="CENTER" fx:id="paragraphLabel1" minWidth="390"  minHeight="85"/>
+                    </VBox>
+                    <VBox alignment="CENTER_LEFT" fx:id="vbox2" onMouseEntered="#handleOnMouseEnteredVBox2"
+                          onMouseExited="#handleOnMouseExitedVBox2" onMouseClicked="#handleBlogEntryAction2">
+                        <Label BorderPane.alignment="CENTER_LEFT" fx:id="titleLabel2" minWidth="390"  minHeight="15"/>
+                        <Label BorderPane.alignment="CENTER" fx:id="paragraphLabel2" minWidth="390"  minHeight="85"/>
+                    </VBox>
+                    <VBox alignment="CENTER_LEFT" fx:id="vbox3" onMouseEntered="#handleOnMouseEnteredVBox3"
+                          onMouseExited="#handleOnMouseExitedVBox3" onMouseClicked="#handleBlogEntryAction3">
+                        <Label BorderPane.alignment="CENTER_LEFT" fx:id="titleLabel3" minWidth="390"  minHeight="15"/>
+                        <Label BorderPane.alignment="CENTER" fx:id="paragraphLabel3" minWidth="390"  minHeight="85"/>
+                    </VBox>
+                    <VBox alignment="CENTER_LEFT" fx:id="vbox4" onMouseEntered="#handleOnMouseEnteredVBox4"
+                          onMouseExited="#handleOnMouseExitedVBox4" onMouseClicked="#handleBlogEntryAction4">
+                        <Label BorderPane.alignment="CENTER_LEFT" fx:id="titleLabel4" minWidth="390"  minHeight="15"/>
+                        <Label BorderPane.alignment="CENTER" fx:id="paragraphLabel4" minWidth="390"  minHeight="85"/>
+                    </VBox>
+                    <VBox alignment="CENTER_LEFT" fx:id="vbox5" onMouseEntered="#handleOnMouseEnteredVBox5"
+                          onMouseExited="#handleOnMouseExitedVBox5" onMouseClicked="#handleBlogEntryAction5">
+                        <Label BorderPane.alignment="CENTER_LEFT" fx:id="titleLabel5" minWidth="390"  minHeight="15"/>
+                        <Label BorderPane.alignment="CENTER" fx:id="paragraphLabel5" minWidth="390"  minHeight="85"/>
+                    </VBox>
+                </VBox>
+                <Label minWidth="30" alignment="CENTER_RIGHT" visible="false"></Label>
+            </HBox>
+        </center>
+        <left>
+            <Label alignment="CENTER_LEFT" minWidth="110" visible="false"></Label>
+            <Button BorderPane.alignment="CENTER_LEFT" layoutX="100.0" layoutY="50.0"
+                    mnemonicParsing="false" onAction="#handlePreviousButtonAction" fx:id="buttonPrevious" visible="false">
+                <graphic>
+                    <SVGPath content="M 73,10 L35,25 L73,40 Z" id="button-icon-shape" layoutX="100"/>
+                    <!--SVGPath content="M 35,10 L73,25 L35,40 Z" id="button-icon-shape" layoutX="100" /-->
+                </graphic>
+            </Button>
+        </left>
+        <right>
+            <Label alignment="CENTER_RIGHT" minWidth="100" visible="false"></Label>
+            <Button BorderPane.alignment="CENTER_RIGHT" layoutX="100.0" layoutY="50.0"
+                    mnemonicParsing="false" onAction="#handleNextButtonAction"
+                    fx:id="buttonNext">
+                <graphic>
+                    <SVGPath content="M 35,10 L73,25 L35,40 Z" id="button-icon-shape" layoutX="100" />
+                    <!--SVGPath content="M 0,16 0,0 10,8 z" id="button-icon-shape" /-->
+                </graphic>
+            </Button>
+        </right>
+    </BorderPane>
+    <ProgressIndicator StackPane.alignment="CENTER" visible="true" minWidth="220"  minHeight="220" fx:id="progIndicator" />
+    <stylesheets>
+        <URL value="@Scenes.css"/>
+    </stylesheets>
+</StackPane>

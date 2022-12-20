@@ -22,9 +22,9 @@
                         onAction="#handleLeftButtonAction" fx:id="buttonLeft" visible="true" AnchorPane.leftAnchor="1"
                 AnchorPane.topAnchor="1">
                 </Button>
-                <Label alignment="CENTER" text="Cargando Entradas..."
+                <Label BorderPane.alignment="CENTER" text="Cargando Entradas..."
                        layoutX="500" layoutY="50" minHeight="40"  fx:id="labelLoading" visible="true"
-                AnchorPane.topAnchor="1"/>
+                       AnchorPane.topAnchor="1"/>
                 <!--<ProgressBar BorderPane.alignment="TOP_RIGHT" layoutY="50" minHeight="40" visible="false" fx:id="progBar" />-->
                 <!--ProgressIndicator BorderPane.alignment="TOP_RIGHT" visible="true" minHeight="40" fx:id="progIndicator" />-->
                 <HBox alignment="TOP_RIGHT" AnchorPane.rightAnchor="1" AnchorPane.topAnchor="1" spacing="3">
